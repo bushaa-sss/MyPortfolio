@@ -91,7 +91,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="secondary"
-                href="/assets/resume.pdf"
+                href="/assets/Resume copy.pdf"
                 download="Bushra_Saleh_Resume.pdf"
               >
                 Download CV
