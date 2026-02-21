@@ -92,7 +92,7 @@ const Hero = () => {
                 size="lg"
                 variant="secondary"
                 href="/assets/resume.pdf"
-                download="Bushra_Saleh_Resume.pdf"
+                download="Bushra Saleh.pdf"
               >
                 Download CV
               </Button>
