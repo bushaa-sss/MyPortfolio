@@ -13,6 +13,12 @@ import salaryScreenshot1 from '../assets/projects/salary-expense/salary-1.png'
 import salaryScreenshot2 from '../assets/projects/salary-expense/salary-2.png'
 import salaryScreenshot3 from '../assets/projects/salary-expense/salary-3.png'
 import salaryScreenshot4 from '../assets/projects/salary-expense/salary-4.png'
+import meditrackScreenshot1 from '../assets/projects/meditrack/meditrack-1.png'
+import meditrackScreenshot2 from '../assets/projects/meditrack/meditrack-2.png'
+import meditrackScreenshot3 from '../assets/projects/meditrack/meditrack-3.png'
+import meditrackScreenshot4 from '../assets/projects/meditrack/meditrack-4.png'
+import meditrackScreenshot5 from '../assets/projects/meditrack/meditrack-5.png'
+import meditrackScreenshot6 from '../assets/projects/meditrack/meditrack-6.png'
 
 const Projects = () => {
   const [activeVideo, setActiveVideo] = useState(null)
@@ -80,6 +86,43 @@ const Projects = () => {
         salaryScreenshot2,
       ],
       color: 'from-emerald-600 to-cyan-500',
+    },
+    {
+      title: 'MediTrack | Doctor-Patient Management Portal',
+      description: 'MediTrack is a full-stack healthcare workflow application that enables doctors to manage patients, prescriptions, reports, follow-ups, and automated reminders in one centralized system. It includes secure JWT authentication, Firebase push notifications, cron-based follow-up alerts, and a production-ready deployment setup.',
+      tech: [
+        'Frontend: React 19, Vite, React Router, Axios, Context API',
+        'Backend: Node.js, Express.js, Mongoose, JWT, bcryptjs',
+        'Database: MongoDB Atlas',
+        'Notifications: Firebase Cloud Messaging (firebase + firebase-admin)',
+        'File Uploads: Multer',
+        'Security: Helmet, CORS allowlist, express-rate-limit',
+        'Deployment: Vercel (Frontend), AWS EC2 Ubuntu (Backend), Nginx, PM2, Let\'s Encrypt SSL, DuckDNS',
+      ],
+      highlights: [
+        'JWT-based doctor authentication',
+        'Username or clinic-email login flow',
+        'Patient CRUD with MR number and medical history',
+        'Prescription management',
+        'Medical report upload/download (PDF/JPG/PNG)',
+        'Follow-up scheduling with history tracking',
+        'Push notification reminders (Firebase Cloud Messaging)',
+        'Timezone-aware cron job for next-day follow-up alerts',
+        'Notification logs and reminder tracking',
+        'PWA support with offline caching',
+      ],
+      image: 'M',
+      github: 'https://github.com/bushaa-sss/MediTrack',
+      demo: 'https://medi-track-lovat.vercel.app/',
+      screenshots: [
+        meditrackScreenshot1,
+        meditrackScreenshot2,
+        meditrackScreenshot3,
+        meditrackScreenshot4,
+        meditrackScreenshot5,
+        meditrackScreenshot6,
+      ],
+      color: 'from-sky-600 to-teal-500',
     },
   ]
 
