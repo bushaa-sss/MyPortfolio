@@ -91,7 +91,7 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="secondary"
-                href="/assets/Bushra Saleh (Full MERN Stack Developer).pdf"
+                href="/assets/Bushra Saleh Resume (Full MERN Stack Developer).pdf"
                 download="Bushra_Saleh_Resume.pdf"
               >
                 Download CV
