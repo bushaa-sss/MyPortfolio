@@ -104,7 +104,8 @@ const Hero = () => {
               variants={itemVariants}
               className="mt-6 text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-text-primary"
             >
-              Bushra Saleh engineers products from polished UI to production APIs.
+              <span className="block">Bushra Saleh</span>
+              <span className="block mt-5 text-[0.65em]">Engineers products from polished UI to production APIs.</span>
             </motion.h1>
 
             <motion.p
