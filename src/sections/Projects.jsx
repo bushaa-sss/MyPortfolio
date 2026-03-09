@@ -4,6 +4,7 @@ import Section from '../components/Section'
 import Card from '../components/Card'
 import Button from '../components/Button'
 import { HiExternalLink, HiCode } from 'react-icons/hi'
+import { FiCheckCircle } from 'react-icons/fi'
 import doctorScreenshot1 from '../assets/projects/doctor/doctor-1-dashboard.png'
 import doctorScreenshot2 from '../assets/projects/doctor/doctor-2-doctors.png'
 import doctorScreenshot3 from '../assets/projects/doctor/doctor-3-duties.png'
@@ -26,34 +27,35 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Safargo – Integrated Real-Time Ticket Booking System',
-      description: 'Developed a cross-platform real-time ticket booking platform integrating flights, trains, and buses into a unified system. Implemented scalable backend APIs, real-time availability tracking, multilingual support, and optimized database queries for concurrent bookings.',
+      code: 'SF',
+      title: 'Safargo - Integrated Real-Time Ticket Booking',
+      tagline: 'Cross-platform booking engine for flights, trains, and buses with synchronized availability.',
+      description: 'Built a unified booking flow with real-time seat availability, secure authentication, and backend APIs tuned for concurrent requests.',
       tech: ['React Native', 'Node.js', 'SQL Server'],
       highlights: [
-        'Designed secure authentication system',
-        'Implemented real-time seat availability updates',
-        'Built RESTful API architecture',
-        'Optimized SQL queries for performance',
-        'Secure backend integration',
+        'Implemented secure auth and protected booking actions',
+        'Designed real-time seat update flow for faster user decisions',
+        'Structured REST APIs for scalable booking operations',
+        'Optimized SQL query paths for concurrent transactions',
       ],
-      image: '✈️',
       github: 'https://github.com/bushraa09/SafarGoo',
       demo: null,
       video: 'https://res.cloudinary.com/du6tfdazy/video/upload/v1771588161/Screen_Recording_2026-02-17_212154_loggyj.mp4',
       color: 'from-blue-600 to-cyan-500',
+      track: 'Realtime + Transactional Logic',
     },
     {
+      code: 'DOC',
       title: 'Doctor Scheduling System',
-      description: 'Developed a full-stack doctor scheduling platform with automated duty management, leave handling, and secure session-based authentication.',
+      tagline: 'Operational scheduling tool for doctor duty and leave management.',
+      description: 'Developed a full-stack scheduling platform that reduces manual planning through role-based workflows and automated shift handling.',
       tech: ['React.js', 'Node.js', 'MongoDB'],
       highlights: [
-        'Role-based authentication',
-        'Leave management system',
-        'Automated schedule generation',
-        'Email notifications',
-        'Secure backend integration',
+        'Built role-based authentication for secured access control',
+        'Added leave approval flow with schedule adjustments',
+        'Automated duty generation logic for operational consistency',
+        'Integrated notification touchpoints for staff awareness',
       ],
-      image: '🏥',
       github: 'https://github.com/bushaa-sss/doctor-scheduling-system',
       demo: 'https://doctor-scheduling-system-pied.vercel.app/',
       screenshots: [
@@ -64,19 +66,20 @@ const Projects = () => {
         doctorScreenshot5,
       ],
       color: 'from-purple-600 to-pink-500',
+      track: 'Workflow Automation',
     },
     {
-      title: 'Salary & Expense Manager',
-      description: 'A full-stack MERN application to track income, manage categorized expenses, and visualize real-time balance trends. Features secure JWT authentication, protected REST APIs, responsive dark/light UI, and interactive Recharts dashboards. Built with production-ready architecture including Express MVC, validation, error handling, rate limiting, and PWA support. Optimized with Vite code-splitting for performance and deployed on AWS EC2 using Node.js, PM2, and Nginx.',
-      tech: ['React', 'React Router', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'JWT', 'Axios', 'Recharts', 'PM2', 'Nginx', 'AWS EC2'],
+      code: 'SEM',
+      title: 'Salary and Expense Manager',
+      tagline: 'Personal finance dashboard with secure APIs, charts, and deploy-ready architecture.',
+      description: 'Delivered a complete MERN product for income and expense management with JWT security, analytics dashboards, and production deployment on AWS.',
+      tech: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Recharts', 'PM2', 'Nginx', 'AWS EC2'],
       highlights: [
-        'JWT authentication with protected APIs',
-        'Categorized expense tracking and income management',
-        'Interactive Recharts dashboards for balance trends',
-        'Production-ready Express MVC with validation and rate limiting',
-        'Deployed on AWS EC2 with PM2 and Nginx',
+        'Secured all private routes with JWT middleware and protected APIs',
+        'Implemented categorized income and expense workflows',
+        'Built interactive balance trend visualization using Recharts',
+        'Shipped production stack with PM2 process handling and Nginx proxy',
       ],
-      image: '💰',
       github: 'https://github.com/bushaa-sss/Salary-Expense-Management',
       demo: 'http://13.60.219.19/',
       screenshots: [
@@ -86,32 +89,30 @@ const Projects = () => {
         salaryScreenshot2,
       ],
       color: 'from-emerald-600 to-cyan-500',
+      track: 'MERN + DevOps',
     },
     {
-      title: 'MediTrack | Doctor-Patient Management Portal',
-      description: 'MediTrack is a full-stack healthcare workflow application that enables doctors to manage patients, prescriptions, reports, follow-ups, and automated reminders in one centralized system. It includes secure JWT authentication, Firebase push notifications, cron-based follow-up alerts, and a production-ready deployment setup.',
+      code: 'MED',
+      title: 'MediTrack - Doctor-Patient Management Portal',
+      tagline: 'Healthcare workflow suite for consultations, reports, and follow-up automation.',
+      description: 'Engineered a healthcare portal with secure doctor authentication, patient records, reminders, and production deployment across Vercel and AWS.',
       tech: [
-        'Frontend: React 19, Vite, React Router, Axios, Context API',
-        'Backend: Node.js, Express.js, Mongoose, JWT, bcryptjs',
-        'Database: MongoDB Atlas',
-        'Notifications: Firebase Cloud Messaging (firebase + firebase-admin)',
-        'File Uploads: Multer',
-        'Security: Helmet, CORS allowlist, express-rate-limit',
-        'Deployment: Vercel (Frontend), AWS EC2 Ubuntu (Backend), Nginx, PM2, Let\'s Encrypt SSL, DuckDNS',
+        'React 19',
+        'Vite',
+        'Node.js',
+        'Express.js',
+        'MongoDB Atlas',
+        'Firebase Cloud Messaging',
+        'Multer',
+        'Helmet + Rate Limit',
+        'Nginx + PM2',
       ],
       highlights: [
-        'JWT-based doctor authentication',
-        'Username or clinic-email login flow',
-        'Patient CRUD with MR number and medical history',
-        'Prescription management',
-        'Medical report upload/download (PDF/JPG/PNG)',
-        'Follow-up scheduling with history tracking',
-        'Push notification reminders (Firebase Cloud Messaging)',
-        'Timezone-aware cron job for next-day follow-up alerts',
-        'Notification logs and reminder tracking',
-        'PWA support with offline caching',
+        'Implemented doctor auth with username and clinic-email login options',
+        'Designed patient and prescription workflows with clean CRUD structure',
+        'Built reminder scheduling with timezone-aware cron execution',
+        'Integrated push notification flow using Firebase messaging services',
       ],
-      image: 'M',
       github: 'https://github.com/bushaa-sss/MediTrack',
       demo: 'https://medi-track-lovat.vercel.app/',
       screenshots: [
@@ -123,6 +124,7 @@ const Projects = () => {
         meditrackScreenshot6,
       ],
       color: 'from-sky-600 to-teal-500',
+      track: 'Healthcare Workflow Platform',
     },
   ]
 
@@ -131,17 +133,17 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.16,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.55, ease: 'easeOut' },
     },
   }
 
@@ -202,89 +204,83 @@ const Projects = () => {
   return (
     <Section
       id="projects"
-      title="Featured Projects"
+      title="Projects"
+      subtitle="Selected builds where I shaped the UI, API behavior, and production delivery pipeline."
       dark={true}
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: '-100px' }}
         className="space-y-8"
       >
-        {projects.map((project, index) => (
-          <motion.div key={index} variants={itemVariants}>
+        {projects.map((project) => (
+          <motion.div key={project.title} variants={itemVariants}>
             <Card className="overflow-hidden p-0">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-                {/* Image Section - Enhanced with glow and overlay */}
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                  className="md:col-span-1 relative overflow-hidden min-h-64 md:min-h-auto group"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: 'spring', stiffness: 280, damping: 20 }}
+                  className="md:col-span-1 relative overflow-hidden min-h-64 md:min-h-auto"
                 >
-                  {/* Gradient background */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-80`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-85`} />
 
-                  {/* Animated glow */}
                   <motion.div
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                    className="absolute -inset-full bg-gradient-to-r from-primary via-secondary to-primary opacity-30 blur-2xl"
+                    transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+                    className="absolute -inset-full bg-gradient-to-r from-primary via-secondary to-primary opacity-20 blur-2xl"
                   />
 
-                  {/* Content */}
-                  <div className="relative h-full flex flex-col items-center justify-center gap-4 p-6 z-10">
-                    <motion.div
-                      animate={{ scale: [1, 1.15, 1], rotate: [0, 5, 0] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                      className="text-7xl md:text-6xl drop-shadow-lg"
-                    >
-                      {project.image}
-                    </motion.div>
+                  <div className="relative h-full flex flex-col justify-between p-6 z-10">
+                    <span />
+                    <div>
+                      <p className="text-6xl font-bold text-white/95 leading-none">{project.code}</p>
+                      <p className="mono mt-3 text-xs text-white/85">{project.track}</p>
+                    </div>
                   </div>
                 </motion.div>
 
-                {/* Content Section - Premium Layout */}
-                <div className="md:col-span-2 flex flex-col justify-between p-8">
+                <div className="md:col-span-2 flex flex-col justify-between p-7 md:p-8">
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-4 leading-tight">
+                    <h3 className="text-2xl md:text-3xl font-bold text-text-primary leading-tight">
                       {project.title}
                     </h3>
+                    <p className="mono mt-2 text-xs uppercase tracking-[0.08em] text-primary">
+                      {project.tagline}
+                    </p>
 
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tech.map((tech, i) => (
+                    <div className="flex flex-wrap gap-2 mt-5 mb-6">
+                      {project.tech.map((tech) => (
                         <motion.span
-                          key={i}
-                          whileHover={{ scale: 1.08 }}
-                          className="px-4 py-2 bg-gradient-to-r from-primary/20 to-secondary/20 text-primary rounded-full text-sm font-semibold border border-primary/40 backdrop-blur-md hover:border-primary/70 transition-all"
+                          key={tech}
+                          whileHover={{ scale: 1.06 }}
+                          className="px-3 py-1.5 bg-gradient-to-r from-primary/20 to-secondary/20 text-cyan-100 rounded-full text-xs font-medium border border-primary/35 backdrop-blur-md hover:border-primary/70 transition-all mono"
                         >
                           {tech}
                         </motion.span>
                       ))}
                     </div>
 
-                    {/* Description */}
-                    <p className="text-text-secondary mb-6 leading-relaxed text-lg">
+                    <p className="text-text-secondary mb-6 leading-relaxed text-base md:text-lg">
                       {project.description}
                     </p>
 
-                    {/* Key Features */}
-                    <div className="mb-6">
-                      <h4 className="text-sm font-bold text-primary uppercase tracking-wide mb-3">
-                        Key Features
+                    <div className="mb-4">
+                      <h4 className="text-xs font-bold text-primary uppercase tracking-[0.1em] mb-3 mono">
+                        Build Notes
                       </h4>
                       <ul className="space-y-2">
-                        {project.highlights.map((highlight, i) => (
+                        {project.highlights.map((highlight) => (
                           <motion.li
-                            key={i}
-                            initial={{ opacity: 0, x: -10 }}
+                            key={highlight}
+                            initial={{ opacity: 0, x: -8 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.05 }}
+                            transition={{ duration: 0.35 }}
                             viewport={{ once: true }}
                             className="text-text-secondary text-sm flex items-start gap-3"
                           >
-                            <span className="text-primary font-bold mt-1">✓</span>
+                            <FiCheckCircle className="text-primary mt-0.5 flex-shrink-0" />
                             <span>{highlight}</span>
                           </motion.li>
                         ))}
@@ -292,7 +288,6 @@ const Projects = () => {
                     </div>
                   </div>
 
-                  {/* CTA Buttons */}
                   <div className="flex flex-wrap gap-4 pt-6 border-t border-primary/20">
                     <Button variant="primary" size="md" href={project.github}>
                       <HiCode className="text-lg" />
@@ -321,6 +316,7 @@ const Projects = () => {
           </motion.div>
         ))}
       </motion.div>
+
       {activeVideo && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
@@ -360,6 +356,7 @@ const Projects = () => {
           </motion.div>
         </div>
       )}
+
       {activeImage && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"

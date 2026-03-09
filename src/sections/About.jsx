@@ -2,27 +2,36 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Section from '../components/Section'
 import Card from '../components/Card'
-import { HiCode, HiSparkles, HiLightBulb } from 'react-icons/hi'
+import { FiCode, FiLayers, FiServer } from 'react-icons/fi'
 
 const About = () => {
+  const operatingMode = [
+    { label: 'Build Focus', value: 'Product features that ship and scale' },
+    { label: 'Stack Zone', value: 'React, Node.js, Express, MongoDB' },
+    { label: 'Workflow', value: 'Design, develop, test, deploy, iterate' },
+  ]
+
   const highlights = [
     {
-      icon: HiCode,
-      title: 'Clean & Maintainable Code',
-      description: 'Writing code that is easy to understand, maintain, and scale for long-term success.',
+      icon: FiLayers,
+      title: 'Product-Driven Frontend',
+      description: 'I turn requirements into clean, reusable UI systems with responsive behavior and intuitive user flow.',
       color: 'from-cyan-500 to-primary',
+      badge: 'UI Architecture',
     },
     {
-      icon: HiSparkles,
-      title: 'Real-Time System Architecture',
-      description: 'Designing systems that handle real-time data synchronization and live updates efficiently.',
-      color: 'from-purple-500 to-secondary',
+      icon: FiServer,
+      title: 'Reliable Backend Thinking',
+      description: 'I design API layers with clear contracts, secure authentication, and maintainable service structure.',
+      color: 'from-indigo-500 to-secondary',
+      badge: 'API + Security',
     },
     {
-      icon: HiLightBulb,
-      title: 'Scalable Backend Development',
-      description: 'Building robust backend systems that grow with your application\'s demands.',
-      color: 'from-secondary to-pink-500',
+      icon: FiCode,
+      title: 'Tool-Play Execution',
+      description: 'I enjoy exploring tooling deeply, from local dev speed to production deployment and performance tuning.',
+      color: 'from-emerald-500 to-cyan-500',
+      badge: 'Delivery Engine',
     },
   ]
 
@@ -31,79 +40,89 @@ const About = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.12,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.55, ease: 'easeOut' },
     },
   }
 
   return (
     <Section
       id="about"
-      title="About Me"
+      title="How I Build"
+      subtitle="Creative full-stack execution with a practical engineering mindset."
       dark={true}
     >
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true, margin: "-100px" }}
-        className="text-text-secondary text-xl max-w-3xl mx-auto text-center mb-16 leading-relaxed"
+        transition={{ duration: 0.55 }}
+        viewport={{ once: true, margin: '-100px' }}
+        className="text-text-secondary text-lg md:text-xl max-w-4xl mx-auto text-center mb-10 leading-relaxed"
       >
-        I am a dedicated MERN Stack Developer with hands-on experience in developing full-stack web and mobile applications. My expertise includes designing RESTful APIs, managing databases efficiently, and implementing real-time features for scalable systems. I have strong problem-solving skills and a deep interest in distributed systems and system design.
+        I am a Full MERN Stack Developer who enjoys building complete product flows, from polished interfaces
+        to production-ready APIs. My style blends creative UI craft with structured backend engineering so each
+        feature feels good for users and stays robust in real use.
       </motion.p>
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: '-100px' }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"
+      >
+        {operatingMode.map((item) => (
+          <motion.div key={item.label} variants={itemVariants}>
+            <div className="glass-panel rounded-xl px-4 py-4 border border-primary/20 h-full">
+              <p className="mono text-xs uppercase tracking-[0.08em] text-primary">{item.label}</p>
+              <p className="mt-2 text-sm text-text-primary leading-relaxed">{item.value}</p>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-100px' }}
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
       >
-        {highlights.map((item, index) => {
+        {highlights.map((item) => {
           const IconComponent = item.icon
           return (
-            <motion.div key={index} variants={itemVariants}>
-              <Card className="h-full flex flex-col items-center text-center p-8 hover:border-primary/60">
-                {/* Icon Container with Gradient Glow */}
-                <motion.div
-                  whileHover={{ scale: 1.15, rotate: 5 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-                  className={`p-5 bg-gradient-to-br ${item.color} rounded-2xl mb-6 shadow-glow relative`}
-                >
-                  <IconComponent className="text-4xl text-white relative z-10" />
+            <motion.div key={item.title} variants={itemVariants}>
+              <Card className="h-full flex flex-col p-7 hover:border-primary/60">
+                <div className="flex items-center justify-between gap-4">
                   <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-                    className="absolute -inset-2 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-2xl blur-lg opacity-0 group-hover:opacity-100"
-                  />
-                </motion.div>
+                    whileHover={{ scale: 1.1, rotate: 4 }}
+                    transition={{ type: 'spring', stiffness: 320, damping: 16 }}
+                    className={`p-4 bg-gradient-to-br ${item.color} rounded-2xl shadow-glow`}
+                  >
+                    <IconComponent className="text-3xl text-white" />
+                  </motion.div>
+                  <span className="mono text-[11px] uppercase tracking-[0.08em] px-3 py-1 rounded-full border border-primary/30 text-primary bg-primary/10">
+                    {item.badge}
+                  </span>
+                </div>
 
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-text-primary mb-3 leading-snug">
+                <h3 className="text-2xl font-bold text-text-primary mt-5 mb-3 leading-snug">
                   {item.title}
                 </h3>
-
-                {/* Description */}
                 <p className="text-text-secondary text-base leading-relaxed flex-grow">
                   {item.description}
                 </p>
-
-                {/* Bottom Border Accent */}
-                <div className="w-full mt-6 pt-6 border-t border-primary/20">
-                  <motion.div
-                    whileHover={{ width: '100%' }}
-                    initial={{ width: '0%' }}
-                    className={`h-1 bg-gradient-to-r ${item.color} rounded-full mx-auto`}
-                  />
+                <div className="w-full mt-6 pt-5 border-t border-primary/20">
+                  <div className={`h-1.5 bg-gradient-to-r ${item.color} rounded-full`} />
                 </div>
               </Card>
             </motion.div>
