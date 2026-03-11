@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const Card = ({ children, className = '', hover = true, ...props }) => {
   const content = (
     <div
-      className={`bg-dark-card/50 backdrop-blur-xl border border-primary/10 rounded-2xl p-6 shadow-premium-card hover:border-primary/30 transition-all duration-300 ${className}`}
+      className={`card-glow relative bg-dark-card/50 backdrop-blur-xl border border-primary/10 rounded-2xl p-6 shadow-premium-card hover:border-primary/30 transition-all duration-300 ${className}`}
       style={{
         backgroundImage: 'linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%)',
       }}

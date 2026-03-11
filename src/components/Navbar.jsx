@@ -18,9 +18,12 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', to: 'hero' },
+    { name: 'Building', to: 'building' },
     { name: 'About', to: 'about' },
     { name: 'Skills', to: 'skills' },
+    { name: 'Tech Stack', to: 'tech' },
     { name: 'Projects', to: 'projects' },
+    { name: 'Open Source', to: 'github' },
     { name: 'Contact', to: 'contact' },
   ]
 
@@ -75,7 +78,10 @@ const Navbar = () => {
                   to={link.to}
                   smooth={true}
                   duration={500}
-                  className="px-4 py-2 text-text-secondary hover:text-primary transition-all duration-300 cursor-pointer rounded-lg hover:bg-primary/10 relative group"
+                  spy={true}
+                  offset={-90}
+                  activeClass="nav-active"
+                  className="nav-link px-4 py-2 text-text-secondary hover:text-primary transition-all duration-300 cursor-pointer rounded-lg hover:bg-primary/10 relative group"
                 >
                   {link.name}
                   <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300" />
@@ -122,8 +128,11 @@ const Navbar = () => {
                       to={link.to}
                       smooth={true}
                       duration={500}
+                      spy={true}
+                      offset={-90}
+                      activeClass="nav-active"
                       onClick={() => setIsOpen(false)}
-                      className="block px-4 py-3 text-text-secondary hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-300 cursor-pointer border border-transparent hover:border-primary/30"
+                      className="nav-link block px-4 py-3 text-text-secondary hover:text-primary hover:bg-primary/10 rounded-lg transition-all duration-300 cursor-pointer border border-transparent hover:border-primary/30"
                     >
                       {link.name}
                     </Link>

@@ -18,7 +18,7 @@ const Footer = () => {
             <div>
               <p className="text-text-primary font-semibold">Bushra Saleh</p>
               <p className="text-sm text-text-secondary">
-                Full MERN Stack Developer building modern web and mobile products.
+                Frontend Engineer and full-stack builder shipping modern web products.
               </p>
             </div>
             <div className="text-left md:text-right">
@@ -29,7 +29,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="mt-4 pt-4 border-t border-primary/20 flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-xs text-text-secondary">
-            <p>© {year} Bushra Saleh. All rights reserved.</p>
+            <p>(c) {year} Bushra Saleh. All rights reserved.</p>
             <p className="mono">Designed and shipped with React + Tailwind + Framer Motion</p>
           </div>
         </motion.div>

@@ -6,32 +6,50 @@ import { FiCode, FiLayers, FiServer } from 'react-icons/fi'
 
 const About = () => {
   const operatingMode = [
-    { label: 'Build Focus', value: 'Product features that ship and scale' },
-    { label: 'Stack Zone', value: 'React, Node.js, Express, MongoDB' },
-    { label: 'Workflow', value: 'Design, develop, test, deploy, iterate' },
+    { label: 'Engineering Focus', value: 'Component systems, API contracts, and reliable delivery' },
+    { label: 'Stack Zone', value: 'React, Node.js, Express, MongoDB, SQL' },
+    { label: 'Workflow', value: 'Plan, build, test, deploy, monitor' },
   ]
 
   const highlights = [
     {
       icon: FiLayers,
-      title: 'Product-Driven Frontend',
-      description: 'I turn requirements into clean, reusable UI systems with responsive behavior and intuitive user flow.',
+      title: 'Frontend Engineering',
+      description: 'I design UI systems that scale across features and devices without sacrificing performance.',
+      bullets: [
+        'Component-driven architecture',
+        'Responsive UI systems',
+        'Performance optimization',
+        'Accessibility best practices',
+      ],
       color: 'from-cyan-500 to-primary',
-      badge: 'UI Architecture',
+      badge: 'UI Systems',
     },
     {
       icon: FiServer,
-      title: 'Reliable Backend Thinking',
-      description: 'I design API layers with clear contracts, secure authentication, and maintainable service structure.',
+      title: 'Backend Systems',
+      description: 'I build APIs with predictable contracts, secure auth flows, and data integrity in mind.',
+      bullets: [
+        'REST API design',
+        'Authentication and authorization',
+        'Database schema design',
+        'Scalable server architecture',
+      ],
       color: 'from-indigo-500 to-secondary',
-      badge: 'API + Security',
+      badge: 'API + Data',
     },
     {
       icon: FiCode,
-      title: 'Tool-Play Execution',
-      description: 'I enjoy exploring tooling deeply, from local dev speed to production deployment and performance tuning.',
+      title: 'Deployment & Tooling',
+      description: 'I ship with production readiness: CI/CD, observability, and fast feedback loops.',
+      bullets: [
+        'CI/CD workflows',
+        'Git-based development',
+        'Production deployment',
+        'Monitoring and debugging',
+      ],
       color: 'from-emerald-500 to-cyan-500',
-      badge: 'Delivery Engine',
+      badge: 'Delivery',
     },
   ]
 
@@ -58,7 +76,7 @@ const About = () => {
     <Section
       id="about"
       title="How I Build"
-      subtitle="Creative full-stack execution with a practical engineering mindset."
+      subtitle="Engineering-first execution across frontend systems, backend APIs, and delivery pipelines."
       dark={true}
     >
       <motion.p
@@ -68,9 +86,9 @@ const About = () => {
         viewport={{ once: true, margin: '-100px' }}
         className="text-text-secondary text-lg md:text-xl max-w-4xl mx-auto text-center mb-10 leading-relaxed"
       >
-        I am a Full MERN Stack Developer who enjoys building complete product flows, from polished interfaces
-        to production-ready APIs. My style blends creative UI craft with structured backend engineering so each
-        feature feels good for users and stays robust in real use.
+        I build full product flows that connect polished interfaces with reliable backend systems. My approach
+        blends UI craftsmanship with engineering rigor so every feature ships with performance, security, and
+        maintainability in mind.
       </motion.p>
 
       <motion.div
@@ -118,9 +136,17 @@ const About = () => {
                 <h3 className="text-2xl font-bold text-text-primary mt-5 mb-3 leading-snug">
                   {item.title}
                 </h3>
-                <p className="text-text-secondary text-base leading-relaxed flex-grow">
+                <p className="text-text-secondary text-base leading-relaxed">
                   {item.description}
                 </p>
+                <ul className="mt-4 space-y-2 text-sm text-text-secondary">
+                  {item.bullets.map((bullet) => (
+                    <li key={bullet} className="flex items-start gap-2">
+                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
                 <div className="w-full mt-6 pt-5 border-t border-primary/20">
                   <div className={`h-1.5 bg-gradient-to-r ${item.color} rounded-full`} />
                 </div>

@@ -11,7 +11,7 @@ const Button = ({
   type = 'button',
   ...props
 }) => {
-  const baseStyles = 'font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center gap-2 relative overflow-hidden backdrop-blur-sm'
+  const baseStyles = 'btn-ripple font-semibold rounded-xl transition-all duration-300 inline-flex items-center justify-center gap-2 relative overflow-hidden backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60'
 
   const variants = {
     primary: 'bg-gradient-to-r from-primary to-secondary text-white shadow-premium hover:shadow-premium-lg hover:scale-105 active:scale-95 border border-primary/30 hover:border-primary/60',

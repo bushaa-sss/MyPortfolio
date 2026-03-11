@@ -16,37 +16,33 @@ const Skills = () => {
   const skillCategories = [
     {
       icon: FiCode,
-      title: 'Frontend Craft',
-      level: 92,
-      summary: 'I create responsive interfaces that stay smooth under real data and user interaction.',
-      tools: ['React.js', 'React Native', 'JavaScript (ES6+)', 'Tailwind CSS', 'PWA'],
-      strength: 'Reusable components, motion-rich UI, and performance-focused rendering.',
+      title: 'Frontend Stack',
+      summary: 'Component systems, state patterns, and motion-rich UI with performance focus.',
+      tools: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'React Native', 'PWA'],
+      strength: 'Reusable components, responsive layouts, and fast rendering under real data.',
       accent: 'from-cyan-500/25 to-blue-500/20',
     },
     {
       icon: FiServer,
-      title: 'Backend Systems',
-      level: 90,
-      summary: 'I build APIs and services designed for maintainability, auth security, and scale.',
-      tools: ['Node.js', 'Express.js', 'REST APIs', 'JWT Authentication', 'Multer'],
+      title: 'Backend Stack',
+      summary: 'APIs, auth, and services designed for maintainability and scale.',
+      tools: ['Node.js', 'Express.js', 'REST APIs', 'JWT Authentication', 'WebSockets'],
       strength: 'Clean API contracts, middleware layering, and predictable error handling.',
       accent: 'from-indigo-500/25 to-violet-500/20',
     },
     {
       icon: FiDatabase,
-      title: 'Data Architecture',
-      level: 86,
-      summary: 'I model data carefully so products stay fast, accurate, and easy to evolve.',
-      tools: ['MongoDB', 'Mongoose', 'SQL Server', 'Aggregation Pipelines'],
+      title: 'Database',
+      summary: 'Data models that stay fast, accurate, and easy to evolve.',
+      tools: ['MongoDB', 'Mongoose', 'SQL Server', 'PostgreSQL'],
       strength: 'Schema planning, index strategy, and query optimization for real workloads.',
       accent: 'from-emerald-500/25 to-cyan-500/20',
     },
     {
       icon: FiSettings,
-      title: 'Deployment + Tooling',
-      level: 84,
-      summary: 'I move features from local to production with confidence and observability.',
-      tools: ['AWS EC2', 'Nginx', 'PM2', 'Vercel', 'Postman'],
+      title: 'Tools',
+      summary: 'From local dev to production delivery with confident monitoring.',
+      tools: ['AWS EC2', 'Nginx', 'PM2', 'Vercel', 'Docker', 'Postman', 'Figma'],
       strength: 'Environment setup, process management, reverse proxy, and rollout checks.',
       accent: 'from-amber-400/25 to-orange-500/20',
     },
@@ -81,7 +77,7 @@ const Skills = () => {
     <Section
       id="skills"
       title="Tool Mastery"
-      subtitle="A creative full-stack workflow across interface, APIs, data, and production tooling."
+      subtitle="Technology groups that power my frontend, backend, data, and delivery workflows."
       dark={false}
     >
       <motion.div
@@ -105,24 +101,12 @@ const Skills = () => {
                       </div>
                       <h3 className="text-2xl font-bold text-text-primary">{category.title}</h3>
                     </div>
-                    <span className="mono text-xs rounded-full border border-primary/30 px-3 py-1 text-primary bg-primary/10">
-                      {category.level}% fluency
+                    <span className="mono text-[11px] uppercase tracking-[0.08em] rounded-full border border-primary/30 px-3 py-1 text-primary bg-primary/10">
+                      Core tools
                     </span>
                   </div>
 
                   <p className="mt-4 text-text-secondary text-sm leading-relaxed">{category.summary}</p>
-
-                  <div className="mt-5">
-                    <div className="h-2 rounded-full bg-dark-bg/80 border border-primary/15 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${category.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: 'easeOut' }}
-                        className="h-full bg-gradient-to-r from-primary to-secondary"
-                      />
-                    </div>
-                  </div>
 
                   <div className="mt-5 flex flex-wrap gap-2">
                     {category.tools.map((tool) => (
@@ -136,7 +120,7 @@ const Skills = () => {
                   </div>
 
                   <p className="mt-5 text-sm text-text-secondary border-t border-primary/15 pt-4">
-                    <span className="text-primary font-semibold">How I play with these tools:</span> {category.strength}
+                    <span className="text-primary font-semibold">How I use these tools:</span> {category.strength}
                   </p>
                 </div>
               </Card>
