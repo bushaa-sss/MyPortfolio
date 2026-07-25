@@ -4,12 +4,19 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Section from '../components/Section'
 import Button from '../components/Button'
 import { HiExternalLink, HiCode } from 'react-icons/hi'
-import { FiActivity, FiArrowRight, FiCheckCircle, FiShield, FiTarget } from 'react-icons/fi'
+import { FiActivity, FiArrowRight, FiCheckCircle, FiShield, FiTarget, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import safarGooScreenshot1 from  '../assets/projects/safarGoo/safarGoo-1.png'
+import safarGooScreenshot2 from  '../assets/projects/safarGoo/safargo about.png'
+import safarGooScreenshot3 from  '../assets/projects/safarGoo/safargo contact.png'
+import safarGooScreenshot4 from  '../assets/projects/safarGoo/safargo dashboard.png'
+import safarGooScreenshot5 from  '../assets/projects/safarGoo/safargo train.png'
+
 import doctorScreenshot1 from '../assets/projects/doctor/doctor-1-dashboard.png'
 import doctorScreenshot2 from '../assets/projects/doctor/doctor-2-doctors.png'
 import doctorScreenshot3 from '../assets/projects/doctor/doctor-3-duties.png'
 import doctorScreenshot4 from '../assets/projects/doctor/doctor-4-schedule.png'
 import doctorScreenshot5 from '../assets/projects/doctor/doctor-5-leaves.png'
+import doctorScreenshot6 from '../assets/projects/doctor/doctor-6-notifications.png'
 import salaryDashboard from '../assets/projects/salary-expense/salary-dashboard.png'
 import salaryLogin from '../assets/projects/salary-expense/salary-login.png'
 import salaryAddIncome from '../assets/projects/salary-expense/salary-add-income.png'
@@ -21,11 +28,14 @@ import meditrackScreenshot3 from '../assets/projects/meditrack/meditrack-3.png'
 import meditrackScreenshot4 from '../assets/projects/meditrack/meditrack-4.png'
 import meditrackScreenshot5 from '../assets/projects/meditrack/meditrack-5.png'
 import meditrackScreenshot6 from '../assets/projects/meditrack/meditrack-6.png'
+import meditrackScreenshot7 from '../assets/projects/meditrack/meditrack-7.png'
+
 
 const Projects = () => {
   const [activeVideo, setActiveVideo] = useState(null)
   const [activeImage, setActiveImage] = useState(null)
   const [activeCaseStudy, setActiveCaseStudy] = useState(null)
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
 
   const projects = [
     {
@@ -55,9 +65,66 @@ const Projects = () => {
       ],
       github: 'https://github.com/bushraa09/SafarGoo',
       demo: null,
+      screenshots: [
+        safarGooScreenshot1,
+        safarGooScreenshot2,
+        safarGooScreenshot3,
+        safarGooScreenshot4,
+        safarGooScreenshot5,
+        
+      ],
       video: 'https://res.cloudinary.com/du6tfdazy/video/upload/v1771588161/Screen_Recording_2026-02-17_212154_loggyj.mp4',
       color: 'from-blue-600 to-cyan-500',
       track: 'Realtime + Transactional Logic',
+    },
+       {
+      code: 'MED',
+      title: 'MediTrack - Doctor-Patient Management Portal',
+      tagline: 'Healthcare workflow suite for consultations, reports, and follow-up automation.',
+      description: 'Engineered a healthcare portal with secure doctor authentication, patient records, reminders, and production deployment across Vercel and AWS.',
+      problem: 'Clinical workflows needed a secure, centralized system for patients, reminders, and records.',
+      architecture: 'React UI -> Node.js API -> MongoDB Atlas -> Firebase FCM',
+      architectureFlow: ['React UI', 'Node.js API', 'MongoDB Atlas', 'Firebase FCM'],
+      auth: 'Doctor authentication with secure credentials and rate-limited endpoints.',
+      tech: [
+        'React 19',
+        'Vite',
+        'Node.js',
+        'Express.js',
+        'MongoDB Atlas',
+        'Firebase Cloud Messaging',
+        'Multer',
+        'Helmet + Rate Limit',
+        'Nginx + PM2',
+      ],
+      features: [
+        'Doctor auth with username and clinic-email login options',
+        'Patient and prescription workflows with clean CRUD structure',
+        'Reminder scheduling with timezone-aware cron execution',
+        'Push notification delivery using Firebase messaging services',
+      ],
+      challenges: [
+        'Building timezone-aware reminder automation',
+        'Securing file uploads and patient data workflows',
+        'Maintaining data integrity across clinics and visits',
+      ],
+      metrics: [
+        'Scheduled reminders executed with timezone-safe cron rules',
+        'Push notification delivery validated in production FCM logs',
+      ],
+      github: 'https://github.com/bushaa-sss/MediTrack',
+      demo: 'https://medi-track-lovat.vercel.app/',
+      screenshots: [
+        meditrackScreenshot1,
+        meditrackScreenshot2,
+        meditrackScreenshot3,
+        meditrackScreenshot4,
+        meditrackScreenshot5,
+        meditrackScreenshot6,
+        meditrackScreenshot7,
+      ],
+      color: 'from-sky-600 to-teal-500',
+      track: 'Healthcare Workflow Platform',
     },
     {
       code: 'DOC',
@@ -92,6 +159,8 @@ const Projects = () => {
         doctorScreenshot3,
         doctorScreenshot4,
         doctorScreenshot5,
+        doctorScreenshot6,
+        
       ],
       color: 'from-purple-600 to-pink-500',
       track: 'Workflow Automation',
@@ -133,54 +202,7 @@ const Projects = () => {
       color: 'from-emerald-600 to-cyan-500',
       track: 'MERN + DevOps',
     },
-    {
-      code: 'MED',
-      title: 'MediTrack - Doctor-Patient Management Portal',
-      tagline: 'Healthcare workflow suite for consultations, reports, and follow-up automation.',
-      description: 'Engineered a healthcare portal with secure doctor authentication, patient records, reminders, and production deployment across Vercel and AWS.',
-      problem: 'Clinical workflows needed a secure, centralized system for patients, reminders, and records.',
-      architecture: 'React UI -> Node.js API -> MongoDB Atlas -> Firebase FCM',
-      architectureFlow: ['React UI', 'Node.js API', 'MongoDB Atlas', 'Firebase FCM'],
-      auth: 'Doctor authentication with secure credentials and rate-limited endpoints.',
-      tech: [
-        'React 19',
-        'Vite',
-        'Node.js',
-        'Express.js',
-        'MongoDB Atlas',
-        'Firebase Cloud Messaging',
-        'Multer',
-        'Helmet + Rate Limit',
-        'Nginx + PM2',
-      ],
-      features: [
-        'Doctor auth with username and clinic-email login options',
-        'Patient and prescription workflows with clean CRUD structure',
-        'Reminder scheduling with timezone-aware cron execution',
-        'Push notification delivery using Firebase messaging services',
-      ],
-      challenges: [
-        'Building timezone-aware reminder automation',
-        'Securing file uploads and patient data workflows',
-        'Maintaining data integrity across clinics and visits',
-      ],
-      metrics: [
-        'Scheduled reminders executed with timezone-safe cron rules',
-        'Security headers and rate limits enforced on critical routes',
-      ],
-      github: 'https://github.com/bushaa-sss/MediTrack',
-      demo: 'https://medi-track-lovat.vercel.app/',
-      screenshots: [
-        meditrackScreenshot1,
-        meditrackScreenshot2,
-        meditrackScreenshot3,
-        meditrackScreenshot4,
-        meditrackScreenshot5,
-        meditrackScreenshot6,
-      ],
-      color: 'from-sky-600 to-teal-500',
-      track: 'Healthcare Workflow Platform',
-    },
+ 
   ]
 
   const containerVariants = {
@@ -264,6 +286,22 @@ const Projects = () => {
     })
   }
 
+  const goToPreviousProject = () => {
+    setCurrentProjectIndex((prev) => (prev - 1 + projects.length) % projects.length)
+  }
+
+  const goToNextProject = () => {
+    setCurrentProjectIndex((prev) => (prev + 1) % projects.length)
+  }
+
+  const goToProject = (index) => {
+    setCurrentProjectIndex(index)
+  }
+
+  const currentProject = projects[currentProjectIndex]
+  const previewImage = currentProject.screenshots?.[0] || null
+  const techLine = currentProject.tech.slice(0, 4).join(' • ')
+
   const ArchitectureFlow = ({ steps }) => (
     <div className="flex flex-wrap items-center gap-2">
       {steps.map((step, index) => (
@@ -287,83 +325,173 @@ const Projects = () => {
       dark={true}
     >
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: '-100px' }}
-        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12"
+        transition={{ duration: 0.3 }}
+        className="w-full"
       >
-        {projects.map((project) => {
-          const previewImage = project.screenshots?.[0] || null
-          const techLine = project.tech.slice(0, 4).join(' • ')
-          const features = project.features.slice(0, 2)
-
-          return (
-            <motion.div key={project.title} variants={itemVariants}>
-              <div className="group h-full aspect-square overflow-hidden rounded-xl border border-white/10 bg-gradient-to-b from-[#0f172a] to-[#020617] transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
-                <div className="h-[180px] w-full overflow-hidden rounded-t-xl border-b border-white/10">
-                  {previewImage ? (
-                    <img
-                      src={previewImage}
-                      alt={`${project.title} preview`}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="h-full w-full flex flex-col items-center justify-center text-center px-4 bg-dark-bg/70">
-                      <p className="text-sm font-semibold text-white/90">Preview coming soon</p>
-                      <p className="mono text-[10px] text-white/70 mt-2">{project.track}</p>
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex flex-col h-[calc(100%-180px)] p-5">
+        {/* Featured Project Showcase */}
+        <div className="w-full border border-white/10 rounded-2xl bg-gradient-to-b from-slate-900/50 to-slate-950/50 overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`project-${currentProjectIndex}`}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.35, ease: 'easeInOut' }}
+              className="w-full"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 p-6 md:p-8 lg:p-10">
+                {/* Left Side - Project Details */}
+                <div className="flex flex-col justify-between">
                   <div>
-                    <h3 className="text-base md:text-lg font-semibold text-text-primary leading-snug max-h-[3.2rem] overflow-hidden">
-                      {project.title}
-                    </h3>
-                    <p className="mono mt-2 text-[11px] uppercase tracking-[0.08em] text-primary/80">
-                      {techLine}
+                    {/* Project Number and Category */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="mono text-xs uppercase tracking-[0.12em] text-primary font-semibold">
+                        {currentProjectIndex + 1} / {projects.length}
+                      </span>
+                      <div className="h-px flex-1 bg-white/10" />
+                    </div>
+
+                    <p className="mono text-xs uppercase tracking-[0.08em] text-primary/70 mb-3">
+                      {currentProject.track}
                     </p>
-                    <ul className="mt-3 space-y-1 text-sm text-text-secondary">
-                      {features.map((feature) => (
-                        <li key={feature} className="flex items-start gap-2">
-                          <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+
+                    {/* Project Title */}
+                    <h2 className="text-3xl md:text-4xl font-semibold text-white leading-tight mb-5">
+                      {currentProject.title}
+                    </h2>
+
+                    {/* Project Description */}
+                    <p className="text-base text-text-secondary leading-relaxed mb-6">
+                      {currentProject.description}
+                    </p>
+
+                    {/* Tech Stack */}
+                    <div className="mb-6">
+                      <p className="mono text-xs uppercase tracking-[0.08em] text-primary/70 mb-3">
+                        Tech Stack
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {currentProject.tech.slice(0, 6).map((tech) => (
+                          <span
+                            key={tech}
+                            className="mono text-[11px] px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-cyan-100"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {currentProject.tech.length > 6 && (
+                          <span className="mono text-[11px] px-3 py-1.5 rounded-full border border-white/20 bg-white/5 text-white/60">
+                            +{currentProject.tech.length - 6}
+                          </span>
+                        )}
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="mt-auto pt-4 flex items-center gap-2">
-                    <Button variant="outline" size="sm" onClick={() => openCaseStudy(project)}>
+                  {/* Action Buttons */}
+                  <div className="flex flex-wrap gap-3">
+                    <Button variant="outline" size="md" onClick={() => openCaseStudy(currentProject)}>
                       View Details
                     </Button>
-                    {project.video ? (
-                      <Button variant="secondary" size="sm" onClick={() => openVideo(project)}>
+                    {currentProject.video ? (
+                      <Button variant="secondary" size="md" onClick={() => openVideo(currentProject)}>
+                        <HiExternalLink className="text-lg" />
                         Live Demo
                       </Button>
-                    ) : project.screenshots?.length ? (
-                      <Button variant="secondary" size="sm" onClick={() => openImageDemo(project)}>
+                    ) : currentProject.screenshots?.length ? (
+                      <Button variant="secondary" size="md" onClick={() => openImageDemo(currentProject)}>
+                        <HiExternalLink className="text-lg" />
                         Live Demo
                       </Button>
-                    ) : project.demo ? (
-                      <Button variant="secondary" size="sm" href={project.demo}>
+                    ) : currentProject.demo ? (
+                      <Button variant="secondary" size="md" href={currentProject.demo}>
+                        <HiExternalLink className="text-lg" />
                         Live Demo
                       </Button>
                     ) : null}
-                    <Button variant="primary" size="sm" href={project.github}>
+                    <Button variant="primary" size="md" href={currentProject.github}>
+                      <HiCode className="text-lg" />
                       View Code
                     </Button>
                   </div>
                 </div>
+
+                {/* Right Side - Large Screenshot */}
+                <div className="flex items-center justify-center">
+                  <div className="w-full aspect-square lg:aspect-auto lg:h-full max-lg:max-h-96 rounded-xl overflow-hidden border border-primary/20 bg-black/40 flex items-center justify-center">
+                    {previewImage ? (
+                      <img
+                        src={previewImage}
+                        alt={`${currentProject.title} preview`}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center text-center px-4">
+                        <p className="text-sm font-semibold text-white/90">Preview coming soon</p>
+                        <p className="mono text-[10px] text-white/70 mt-2">{currentProject.track}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </motion.div>
-          )
-        })}
+          </AnimatePresence>
+
+          {/* Navigation Controls */}
+          <div className="border-t border-white/10 px-6 md:px-8 lg:px-10 py-6 md:py-7 flex items-center justify-between">
+            {/* Previous Button */}
+            <motion.button
+              type="button"
+              onClick={goToPreviousProject}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center justify-center h-10 w-10 rounded-full border border-white/20 hover:border-white/40 text-white/70 hover:text-white transition-colors duration-300"
+              aria-label="Previous project"
+            >
+              <FiChevronLeft className="text-lg" />
+            </motion.button>
+
+            {/* Pagination Dots */}
+            <div className="flex items-center gap-2">
+              {projects.map((_, index) => (
+                <motion.button
+                  key={index}
+                  type="button"
+                  onClick={() => goToProject(index)}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentProjectIndex
+                      ? 'w-6 bg-primary'
+                      : 'w-2 bg-white/30 hover:bg-white/50'
+                  }`}
+                  aria-label={`Go to project ${index + 1}`}
+                  aria-current={index === currentProjectIndex ? 'true' : 'false'}
+                />
+              ))}
+            </div>
+
+            {/* Next Button */}
+            <motion.button
+              type="button"
+              onClick={goToNextProject}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center justify-center h-10 w-10 rounded-full border border-white/20 hover:border-white/40 text-white/70 hover:text-white transition-colors duration-300"
+              aria-label="Next project"
+            >
+              <FiChevronRight className="text-lg" />
+            </motion.button>
+          </div>
+        </div>
       </motion.div>
 
+      {/* Case Study Modal */}
       <AnimatePresence>
         {activeCaseStudy && (
           <motion.div
@@ -399,77 +527,60 @@ const Projects = () => {
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                <div className="rounded-xl border border-primary/20 bg-dark-bg/70 p-4">
-                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary">Problem Statement</p>
-                  <p className="mt-3 text-sm text-text-secondary leading-relaxed">
+              <div className="space-y-5">
+                <div>
+                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary mb-2">Problem Statement</p>
+                  <p className="text-text-secondary leading-relaxed">
                     {activeCaseStudy.problem}
                   </p>
                 </div>
-                <div className="rounded-xl border border-primary/20 bg-dark-bg/70 p-4">
-                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary">System Architecture</p>
-                  <p className="mt-3 text-sm text-text-secondary leading-relaxed">
+
+                <div>
+                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary mb-2">Architecture</p>
+                  <p className="text-text-secondary leading-relaxed mb-3">
                     {activeCaseStudy.architecture}
                   </p>
-                  <div className="mt-3">
-                    <ArchitectureFlow steps={activeCaseStudy.architectureFlow} />
-                  </div>
-                  <div className="mt-3">
-                    <p className="mono text-[11px] uppercase tracking-[0.08em] text-primary">Authentication</p>
-                    <p className="text-sm text-text-secondary leading-relaxed">{activeCaseStudy.auth}</p>
-                  </div>
-                  <pre className="mt-3 mono text-[11px] text-cyan-200 bg-dark-bg/70 border border-primary/20 rounded-lg p-3 overflow-auto">
-                    {activeCaseStudy.architectureFlow.join(' -> ')}
-                  </pre>
+                  <ArchitectureFlow steps={activeCaseStudy.architectureFlow} />
                 </div>
-              </div>
 
-              <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-5">
-                <div className="lg:col-span-2 rounded-xl border border-primary/20 bg-dark-bg/70 p-4">
-                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary">Key Challenges Solved</p>
-                  <ul className="mt-3 space-y-2 text-sm text-text-secondary">
-                    {activeCaseStudy.challenges.map((challenge) => (
-                      <li key={challenge} className="flex items-start gap-2">
-                        <FiCheckCircle className="text-primary mt-0.5" />
-                        <span>{challenge}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div>
+                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary mb-2">Authentication & Security</p>
+                  <p className="text-text-secondary leading-relaxed">
+                    {activeCaseStudy.auth}
+                  </p>
                 </div>
-                <div className="rounded-xl border border-primary/20 bg-dark-bg/70 p-4">
-                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary">Technology Stack</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {activeCaseStudy.tech.map((tool) => (
-                      <span
-                        key={tool}
-                        className="mono text-[11px] px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-cyan-100"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
 
-              <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-5">
-                <div className="rounded-xl border border-primary/20 bg-dark-bg/70 p-4">
-                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary">Feature Highlights</p>
-                  <ul className="mt-3 space-y-2 text-sm text-text-secondary">
+                <div>
+                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary mb-3">Key Features</p>
+                  <ul className="space-y-2">
                     {activeCaseStudy.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2">
-                        <FiCheckCircle className="text-primary mt-0.5" />
-                        <span>{feature}</span>
+                      <li key={feature} className="flex items-start gap-3">
+                        <FiCheckCircle className="text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-text-secondary">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="rounded-xl border border-primary/20 bg-dark-bg/70 p-4">
-                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary">Engineering Metrics</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
+
+                <div>
+                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary mb-3">Challenges & Solutions</p>
+                  <ul className="space-y-2">
+                    {activeCaseStudy.challenges.map((challenge) => (
+                      <li key={challenge} className="flex items-start gap-3">
+                        <FiShield className="text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-text-secondary">{challenge}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary mb-3">Performance & Metrics</p>
+                  <div className="space-y-2">
                     {activeCaseStudy.metrics.map((metric) => (
                       <span
                         key={metric}
-                        className="mono text-[11px] px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-cyan-100"
+                        className="inline-block mono text-[11px] px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-cyan-100 mr-2 mb-2"
                       >
                         {metric}
                       </span>
@@ -518,6 +629,7 @@ const Projects = () => {
         )}
       </AnimatePresence>
 
+      {/* Video Modal */}
       <AnimatePresence>
         {activeVideo && (
           <div
@@ -560,6 +672,7 @@ const Projects = () => {
         )}
       </AnimatePresence>
 
+      {/* Image Gallery Modal */}
       <AnimatePresence>
         {activeImage && (
           <div
