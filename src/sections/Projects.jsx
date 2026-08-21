@@ -50,11 +50,12 @@ const Projects = () => {
       code: 'MAX',
       title: 'Maxis Energy - Solar Company Website & Admin Platform',
       tagline: 'Full-stack marketing site and admin panel for a Pakistani solar energy company — my first real client project.',
-      description: 'Built and deployed a production website for Maxis Energy, a solar installation company serving residential, commercial, and industrial clients across Pakistan, complete with a custom admin panel for managing projects, testimonials, events, and certificates.',
+      description: 'Designed, built, and deployed a production full-stack web platform for Maxis Energy, a solar installation company serving residential, commercial, and industrial clients across Pakistan. The platform includes a public marketing website and a custom admin panel for managing projects, testimonials, events, and certificates without touching code.',
       problem: 'The client needed a professional, trust-building web presence to showcase solar installation projects and client testimonials, plus a way to manage that content themselves without touching code.',
-      architecture: 'React + TanStack Router UI -> Node.js/Express REST API -> MongoDB (self-hosted) -> Hostinger VPS (Nginx + PM2)',
-      architectureFlow: ['React UI', 'Express API', 'MongoDB', 'VPS + Nginx'],
-      auth: 'JWT-authenticated admin panel with role-restricted access to content management.',
+      architecture: 'React + TanStack Router → Node.js/Express REST API → Mongoose → Self-hosted MongoDB',
+      architectureFlow: ['React + TanStack Router', 'Express REST API', 'Mongoose', 'MongoDB'],
+      deployment: "Deployment: Hostinger VPS + Nginx + PM2 + Let's Encrypt",
+      auth: 'JWT-authenticated admin panel with protected content-management access.',
       tech: [
         'React',
         'TypeScript',
@@ -64,13 +65,19 @@ const Projects = () => {
         'shadcn/ui',
         'Node.js',
         'Express.js',
-        'MongoDB',
-        'Mongoose',
+        'REST API',
         'JWT',
         'Multer',
+        'MongoDB',
+        'Mongoose',
+        'Ubuntu',
+        'Hostinger VPS',
         'Nginx',
         'PM2',
-        'Hostinger VPS',
+        "Let's Encrypt",
+        'mongodump',
+        'Cron',
+        'Automated off-server backups',
       ],
       features: [
         'Public marketing site with project showcase, testimonials, and solar savings calculator',
@@ -84,9 +91,10 @@ const Projects = () => {
         'Designing an admin panel non-technical staff could use to manage content directly',
         'Building a reliable backup pipeline (mongodump cron jobs, tarballs pulled to the client\'s machine)',
       ],
+      metricsLabel: 'Deployment & Reliability',
       metrics: [
-        'Deployed and maintained on a self-managed VPS with SSL across multiple subdomains',
-        'Automated backup pipeline running on cron with off-site copies',
+        "Deployed and maintained on a self-managed Hostinger VPS with SSL across multiple subdomains.",
+        'Automated backup pipeline using cron, MongoDB dumps, and off-server copies.',
       ],
       github: 'https://github.com/bushaa-sss/maxis',
       demo: 'https://www.maxisenergy.com.pk/',
@@ -447,11 +455,6 @@ const Projects = () => {
                             {tech}
                           </span>
                         ))}
-                        {currentProject.tech.length > 6 && (
-                          <span className="mono text-[11px] px-3 py-1.5 rounded-full border border-white/20 bg-white/5 text-white/60">
-                            +{currentProject.tech.length - 6}
-                          </span>
-                        )}
                       </div>
                     </div>
                   </div>
@@ -606,6 +609,11 @@ const Projects = () => {
                     {activeCaseStudy.architecture}
                   </p>
                   <ArchitectureFlow steps={activeCaseStudy.architectureFlow} />
+                  {activeCaseStudy.deployment ? (
+                    <p className="text-text-secondary leading-relaxed mt-3">
+                      {activeCaseStudy.deployment}
+                    </p>
+                  ) : null}
                 </div>
 
                 <div>
@@ -640,7 +648,7 @@ const Projects = () => {
                 </div>
 
                 <div>
-                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary mb-3">Performance & Metrics</p>
+                  <p className="mono text-xs uppercase tracking-[0.08em] text-primary mb-3">{activeCaseStudy.metricsLabel || 'Performance & Metrics'}</p>
                   <div className="space-y-2">
                     {activeCaseStudy.metrics.map((metric) => (
                       <span
