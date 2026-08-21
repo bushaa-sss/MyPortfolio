@@ -29,6 +29,14 @@ import meditrackScreenshot4 from '../assets/projects/meditrack/meditrack-4.png'
 import meditrackScreenshot5 from '../assets/projects/meditrack/meditrack-5.png'
 import meditrackScreenshot6 from '../assets/projects/meditrack/meditrack-6.png'
 import meditrackScreenshot7 from '../assets/projects/meditrack/meditrack-7.png'
+import maixsCover from '../assets/projects/maixs/maixs-main.png'
+import maixsScreenshot1 from '../assets/projects/maixs/maixs-1.png'
+import maixsScreenshot2 from '../assets/projects/maixs/maixs-2.png'
+import maixsScreenshot3 from '../assets/projects/maixs/maixs-3.png'
+import maixsScreenshot4 from '../assets/projects/maixs/maixs-4.png'
+import maixsScreenshot5 from '../assets/projects/maixs/maixs-5.png'
+import maixsScreenshot6 from '../assets/projects/maixs/maixs-6.png'
+import maixsScreenshot7 from '../assets/projects/maixs/maixs-7.png'
 
 
 const Projects = () => {
@@ -38,6 +46,63 @@ const Projects = () => {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0)
 
   const projects = [
+    {
+      code: 'MAX',
+      title: 'Maxis Energy - Solar Company Website & Admin Platform',
+      tagline: 'Full-stack marketing site and admin panel for a Pakistani solar energy company — my first real client project.',
+      description: 'Built and deployed a production website for Maxis Energy, a solar installation company serving residential, commercial, and industrial clients across Pakistan, complete with a custom admin panel for managing projects, testimonials, events, and certificates.',
+      problem: 'The client needed a professional, trust-building web presence to showcase solar installation projects and client testimonials, plus a way to manage that content themselves without touching code.',
+      architecture: 'React + TanStack Router UI -> Node.js/Express REST API -> MongoDB (self-hosted) -> Hostinger VPS (Nginx + PM2)',
+      architectureFlow: ['React UI', 'Express API', 'MongoDB', 'VPS + Nginx'],
+      auth: 'JWT-authenticated admin panel with role-restricted access to content management.',
+      tech: [
+        'React',
+        'TypeScript',
+        'Vite',
+        'TanStack Router',
+        'Tailwind CSS',
+        'shadcn/ui',
+        'Node.js',
+        'Express.js',
+        'MongoDB',
+        'Mongoose',
+        'JWT',
+        'Multer',
+        'Nginx',
+        'PM2',
+        'Hostinger VPS',
+      ],
+      features: [
+        'Public marketing site with project showcase, testimonials, and solar savings calculator',
+        'Custom admin panel with CRUD for projects, testimonials, events, and certificates',
+        'Image and video upload handling via Multer',
+        'Self-hosted MongoDB with automated cron backups and off-server tarball copies',
+        'Nginx reverse proxy with PM2 process management and Let\'s Encrypt SSL',
+      ],
+      challenges: [
+        'Setting up and hardening a self-hosted VPS deployment from scratch (Ubuntu, Nginx, SSL, subdomains)',
+        'Designing an admin panel non-technical staff could use to manage content directly',
+        'Building a reliable backup pipeline (mongodump cron jobs, tarballs pulled to the client\'s machine)',
+      ],
+      metrics: [
+        'Deployed and maintained on a self-managed VPS with SSL across multiple subdomains',
+        'Automated backup pipeline running on cron with off-site copies',
+      ],
+      github: 'https://github.com/bushaa-sss/maxis',
+      demo: 'https://www.maxisenergy.com.pk/',
+      screenshots: [
+        maixsCover,
+        maixsScreenshot1,
+        maixsScreenshot2,
+        maixsScreenshot3,
+        maixsScreenshot4,
+        maixsScreenshot5,
+        maixsScreenshot6,
+        maixsScreenshot7,
+      ],
+      color: 'from-amber-500 to-orange-600',
+      track: 'Client Project - Full-Stack Delivery',
+    },
     {
       code: 'SF',
       title: 'Safargo - Integrated Real-Time Ticket Booking',
@@ -428,7 +493,7 @@ const Projects = () => {
                         alt={`${currentProject.title} preview`}
                         loading="lazy"
                         decoding="async"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                     ) : (
                       <div className="flex flex-col items-center justify-center text-center px-4">
