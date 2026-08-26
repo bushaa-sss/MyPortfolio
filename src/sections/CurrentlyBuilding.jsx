@@ -66,8 +66,8 @@ const CurrentlyBuilding = () => {
         {builds.map((build) => {
           const Icon = build.icon
           return (
-            <motion.div key={build.title} variants={itemVariants}>
-              <Card className="h-full p-0 overflow-hidden">
+            <motion.div key={build.title} variants={itemVariants} className="h-full">
+              <Card className="h-full min-h-[425px] p-0 overflow-hidden">
                 <div className={`h-1 w-full bg-gradient-to-r ${build.accent}`} />
                 <div className="p-6 flex flex-col h-full">
                   <div className="flex items-center justify-between gap-4">

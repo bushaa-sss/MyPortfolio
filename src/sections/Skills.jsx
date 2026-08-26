@@ -90,8 +90,8 @@ const Skills = () => {
         {skillCategories.map((category) => {
           const Icon = category.icon
           return (
-            <motion.div key={category.title} variants={itemVariants}>
-              <Card className="h-full p-0 overflow-hidden hover:border-primary/60">
+            <motion.div key={category.title} variants={itemVariants} className="h-full">
+              <Card className="h-full min-h-[380px] p-0 overflow-hidden hover:border-primary/60">
                 <div className={`h-1 w-full bg-gradient-to-r ${category.accent}`} />
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-4">

@@ -1,5 +1,6 @@
 ﻿
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Section from '../components/Section'
 import Button from '../components/Button'
@@ -40,6 +41,7 @@ import maixsScreenshot7 from '../assets/projects/maixs/maixs-7.png'
 
 
 const Projects = () => {
+  const navigate = useNavigate()
   const [activeVideo, setActiveVideo] = useState(null)
   const [activeImage, setActiveImage] = useState(null)
   const [activeCaseStudy, setActiveCaseStudy] = useState(null)
@@ -113,28 +115,29 @@ const Projects = () => {
     },
     {
       code: 'SF',
-      title: 'Safargo - Integrated Real-Time Ticket Booking',
-      tagline: 'Cross-platform booking engine for flights, trains, and buses with synchronized availability.',
-      description: 'Built a unified booking flow with real-time seat availability, secure authentication, and backend APIs tuned for concurrent requests.',
-      problem: 'Travel bookings were fragmented across providers, leading to inconsistent availability and manual reconciliation.',
-      architecture: 'React Native app -> Node.js API -> SQL Server (transactional booking)',
-      architectureFlow: ['React Native App', 'Node.js API', 'SQL Server'],
-      auth: 'JWT-based authentication with role-aware booking permissions.',
-      tech: ['React Native', 'Node.js', 'SQL Server'],
+      title: 'SafarGoo',
+      tagline: 'Travel & Tourism Platform',
+      description: 'A cross-platform flight and train booking app for Pakistan, with live Amadeus flight search, a custom itinerary reliability score, and a full booking lifecycle backed by a role-based admin console.',
+      problem: 'Travel search results rarely show which option is actually a safe, low-risk choice — SafarGoo scores every itinerary and tracks bookings through a full, auditable lifecycle.',
+      architecture: 'React Native (Expo) app -> Node.js/Express REST API -> SQL Server',
+      architectureFlow: ['React Native App', 'Express API', 'SQL Server'],
+      auth: 'JWT-based traveler authentication (email/password + email OTP), with a separate role-based JWT flow protecting the admin console.',
+      tech: ['React Native', 'Node.js', 'Express', 'SQL Server', 'JWT'],
+      caseStudyPath: '/projects/safargoo',
       features: [
-        'Real-time seat availability sync across transport modes',
-        'Booking confirmation workflow with transactional safeguards',
-        'Secure payment flow simulation and receipt generation',
-        'Role-based access for booking actions and admin overrides',
+        'Live flight search via the Amadeus API merged with a separate train dataset',
+        'Custom "Trip Guardian" reliability scoring for every itinerary',
+        'Two-phase booking flow with a full audit trail and auto-abandon sweep',
+        'Role-based admin console with bookings, analytics, and a support ticket system',
       ],
       challenges: [
-        'Preventing double-booking during concurrent seat requests',
-        'Keeping mobile UI responsive during live availability updates',
-        'Designing API contracts that map multiple transport types',
+        'Preventing stale, abandoned bookings from piling up in the database',
+        'Surfacing itinerary risk (tight layovers, red-eye timing) that raw results hide',
+        'Running a full demo/dev flow without depending on live Amadeus API credits',
       ],
       metrics: [
-        'Simulated concurrent booking flows to validate transaction safety',
-        'Optimized seat lookup queries for low-latency responses',
+        'Custom reliability scoring computed for every flight and train offer',
+        'Automated sweep job clears stale booking intents on a timer',
       ],
       github: 'https://github.com/bushraa09/SafarGoo',
       demo: null,
@@ -144,11 +147,10 @@ const Projects = () => {
         safarGooScreenshot3,
         safarGooScreenshot4,
         safarGooScreenshot5,
-        
+
       ],
-      video: 'https://res.cloudinary.com/du6tfdazy/video/upload/v1771588161/Screen_Recording_2026-02-17_212154_loggyj.mp4',
       color: 'from-blue-600 to-cyan-500',
-      track: 'Realtime + Transactional Logic',
+      track: 'Travel & Tourism Platform',
     },
        {
       code: 'MED',
@@ -461,10 +463,17 @@ const Projects = () => {
 
                   {/* Action Buttons */}
                   <div className="flex flex-wrap gap-3">
-                    <Button variant="outline" size="md" onClick={() => openCaseStudy(currentProject)}>
-                      View Details
-                    </Button>
-                    {currentProject.video ? (
+                    {currentProject.caseStudyPath ? (
+                      <Button variant="outline" size="md" onClick={() => navigate(currentProject.caseStudyPath)}>
+                        View Case Study
+                        <FiArrowRight className="text-lg" />
+                      </Button>
+                    ) : (
+                      <Button variant="outline" size="md" onClick={() => openCaseStudy(currentProject)}>
+                        View Details
+                      </Button>
+                    )}
+                    {currentProject.caseStudyPath ? null : currentProject.video ? (
                       <Button variant="secondary" size="md" onClick={() => openVideo(currentProject)}>
                         <HiExternalLink className="text-lg" />
                         Live Demo
