@@ -30,6 +30,9 @@ import meditrackScreenshot4 from '../assets/projects/meditrack/meditrack-4.png'
 import meditrackScreenshot5 from '../assets/projects/meditrack/meditrack-5.png'
 import meditrackScreenshot6 from '../assets/projects/meditrack/meditrack-6.png'
 import meditrackScreenshot7 from '../assets/projects/meditrack/meditrack-7.png'
+import meditrackScreenshot8 from '../assets/projects/meditrack/meditrack-8.png'
+import meditrackScreenshot9 from '../assets/projects/meditrack/meditrack-9.png'
+import meditrackScreenshot10 from '../assets/projects/meditrack/meditrack-10.png'
 import maixsCover from '../assets/projects/maixs/maixs-main.png'
 import maixsScreenshot1 from '../assets/projects/maixs/maixs-1.png'
 import maixsScreenshot2 from '../assets/projects/maixs/maixs-2.png'
@@ -197,6 +200,9 @@ const Projects = () => {
         meditrackScreenshot5,
         meditrackScreenshot6,
         meditrackScreenshot7,
+        meditrackScreenshot8,
+        meditrackScreenshot9,
+        meditrackScreenshot10,
       ],
       color: 'from-sky-600 to-teal-500',
       track: 'Healthcare Workflow Platform',
